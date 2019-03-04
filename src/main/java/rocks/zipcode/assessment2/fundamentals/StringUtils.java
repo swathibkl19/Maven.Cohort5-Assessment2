@@ -10,7 +10,8 @@ public class StringUtils {
      * @return `stringToBePadded` flushed right by left-padding
      */
     public static String padLeft(String stringToBePadded, int amountOfPadding) {
-        return null;
+
+   return String.format("%1$" + amountOfPadding + "s", stringToBePadded);
     }
 
     /**
@@ -19,7 +20,8 @@ public class StringUtils {
      * @return `stringToBePadded` flushed right by right-padding
      */
     public static String padRight(String stringToBePadded, int amountOfPadding) {
-        return null;
+
+   return String.format("%1$-" + amountOfPadding + "s", stringToBePadded);
     }
 
     /**
@@ -28,7 +30,16 @@ public class StringUtils {
      * @return the string repeated and concatenated `n` times
      */
     public static String repeatString(String stringToBeRepeated, int numberOfTimeToRepeat) {
-        return null;
+       String new_word = "";
+        for (int i = 1; i <= numberOfTimeToRepeat; i++)
+        {
+            if (i <=  numberOfTimeToRepeat)
+                new_word = new_word+stringToBeRepeated;
+            else
+                new_word += new_word;
+        }
+        return new_word;
+
     }
 
     /**
@@ -36,7 +47,11 @@ public class StringUtils {
      * @return - true if string only contains alpha characters
      */
     public static Boolean isAlphaString(String string) {
-        return null;
+
+        if(string.matches("[a-z ]+")){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -44,7 +59,11 @@ public class StringUtils {
      * @return - true if string only contains numeric characters
      */
     public static Boolean isNumericString(String string) {
-        return null;
+
+        if(string.matches("[a-zA-Z0-9]+")){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -52,6 +71,11 @@ public class StringUtils {
      * @return - true if string only contains special characters
      */
     public static Boolean isSpecialCharacterString(String string) {
-        return null;
+
+        if(string.matches("[" + "!&*(/@#$%^.'_+={})"+ "]")){
+            return true;
+        }
+        return false;
     }
+
 }
