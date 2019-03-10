@@ -2,6 +2,7 @@ package rocks.zipcode.assessment2.collections;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Use a map to solve
@@ -23,28 +24,42 @@ public class MonthConversion {
      * @return the name of the respective month
      */
     public String getName(Integer monthNumber) {
-        monthMap.get(monthNumber);
-        throw new NullPointerException();
+        //if(monthMap.containsKey(monthNumber)){
+            return monthMap.get(monthNumber);
+        //}
+        //return null;
     }
 
     /**
      * @param monthName - name of month
      * @return - the ordinal of the month in the year
      */
-    public int getNumber(String monthName) {
+    public Integer getNumber(String monthName) {
 
-        return Integer.parseInt(monthMap.get(monthName));
+
+      // return Integer.parseInt(monthMap.get(monthName));
+        Set<Map.Entry<Integer, String>> entries = monthMap.entrySet();
+
+        for(Map.Entry<Integer, String> entry : entries) {
+            if (entry.getValue().equals(monthName)) {
+                return entry.getKey();
+            }
+        }
+
+       // return Integer.parseInt(null);
+        return null;
     }
+
+
+
 
     /**
      * @param monthNumber
      * @return true if the monthNumber is in the keySet
      */
     public Boolean isValidNumber(Integer monthNumber) {
-        //if(monthMap.get(monthNumber)<=12){
 
-       // }
-        return null;
+        return monthMap.containsKey(monthNumber);
     }
 
     /**
@@ -52,14 +67,14 @@ public class MonthConversion {
      * @return true if the monthName is in the valueSet
      */
     public Boolean isValidMonth(String monthName) {
-        return null;
+        return monthMap.containsValue(monthName);
     }
 
     /**
      * @return number of entries in this mapping
      */
     public Integer size() {
-        return -1;
+        return monthMap.size();
     }
 
     /**
@@ -67,6 +82,7 @@ public class MonthConversion {
      * @param monthName - name of month
      */
     public void update(Integer monthNumber, String monthName) {
+        monthMap.put(monthNumber,monthName);
 
     }
 }

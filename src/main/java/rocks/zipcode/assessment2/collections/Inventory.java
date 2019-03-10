@@ -7,26 +7,29 @@ import java.util.*;
  */
 public class Inventory {
 
-    Map<String, Integer> storeInventory = new HashMap<String,Integer>();
-    List<List<String>> arrList = new ArrayList<>();
+    //Map<String, Integer> storeInventory = new HashMap<String,Integer>();
+    List<String> arrList = new ArrayList<>();
 
 
     /**
          * @param strings list of strings to add / remove / fetch from
          */
     public Inventory(List<String> strings) {
-        List<List<String>> arrList = new ArrayList<>();
+//        List<List<String>> arrList = new ArrayList<>();
+//
+//        arrList.add(strings);
+//        arrList.removeAll((Collection<?>) storeInventory);
+//        arrList.containsAll((Collection<?>) storeInventory);
 
-        arrList.add(strings);
-        arrList.removeAll((Collection<?>) storeInventory);
-        arrList.containsAll((Collection<?>) storeInventory);
-
+        this.arrList =strings;
     }
 
     /**
      * nullary constructor initializes a new list
      */
     public Inventory() {
+       // List<String> arrList = new ArrayList<>();
+
 
     }
 
@@ -34,7 +37,7 @@ public class Inventory {
      * @param item - increment the number of this item in stock by 1
      */
     public void addItemToInventory(String item) {
-        arrList.add(Collections.singletonList(item));
+        arrList.add(item);
 
 
     }
@@ -43,7 +46,8 @@ public class Inventory {
      * @param item - decrement the number of this item in stock by 1
      */
     public void removeItemFromInventory(String item) {
-        arrList.removeAll(Collections.singleton(item));
+
+        arrList.remove(item);
     }
 
     /**
@@ -51,7 +55,7 @@ public class Inventory {
      * @return - return the number of items
      */
     public Integer getItemQuantity(String item) {
-       // return arrList.get(Integer.parseInt(item));
-        return  null;
+        return arrList.size();
+
     }
 }

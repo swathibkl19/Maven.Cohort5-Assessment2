@@ -9,11 +9,11 @@ import java.security.acl.Owner;
  * @author leon on 29/11/2018.
  * @ATTENTION_TO_STUDENTS - Ensure that you have completed the `Person` class before attempting this class.
  */
-public class Animal extends Person {
-    Long id;
-    Owner owner;
+public class Animal  {
+   private Long id;
+    private Person owner;
     public Animal() {
-        this.id =null;
+        this.owner =new Person();
     }
 
     /**
@@ -22,7 +22,7 @@ public class Animal extends Person {
      */
     public Animal(Long id, Person owner) {
         this.id =id;
-        this.owner=null;
+        this.owner=owner;
     }
 
     public Long getId() {
@@ -36,15 +36,15 @@ public class Animal extends Person {
 
     public Person getOwner() {
 
-        return (Person) owner;
+        return  owner;
     }
 
     public void setOwner(Person owner) {
-        this.owner= (Owner) owner;
+        this.owner= owner;
     }
 
     public Address getAddress() {
 
-        return null;
+        return owner.getAddress();
     }
 }

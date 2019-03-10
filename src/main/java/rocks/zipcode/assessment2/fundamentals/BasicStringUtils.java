@@ -45,11 +45,20 @@ public class BasicStringUtils {
      */
     public static String removeCharacters(String string, String charactersToRemove) {
 
+            //String newStr =  string.replaceAll(charactersToRemove , "");----check
+            String temp =string;
 
-            String newStr =  string.replace(charactersToRemove , "");
+        for (int i = 0; i <charactersToRemove.length(); i++) {
+            temp =temp.replaceAll(charactersToRemove.substring(i,i+1),"");
+//         Character c =string.charAt(i);
+//         if(!charactersToRemove.contains(c.toString())) {
+//
+//             temp += c;
+//         }
+        }
 
-            return newStr;
 
+return temp;
     }
 
     /**

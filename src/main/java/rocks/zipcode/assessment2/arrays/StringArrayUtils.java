@@ -1,7 +1,5 @@
 package rocks.zipcode.assessment2.arrays;
 
-import com.sun.tools.javac.util.ArrayUtils;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -20,6 +18,26 @@ public class StringArrayUtils {
 
         return Arrays.copyOfRange(arrayToBeSpliced,startingIndex,endingIndex);
 
+        //if startingIndex or endingIndex is less than 0, then throw IllegalArgumentException
+//        if (startingIndex < 0 || endingIndex < 0) {
+//            throw new IllegalArgumentException();
+//        }
+//
+//        //need to create a new array with the subarray length
+//        int newLength = endingIndex - startingIndex;
+//        String[] newArray = new String[newLength];
+//
+//        int newArrayIndex = 0; //variable to keep track of where to add to the new array
+//
+//        //go through each element to copy over
+//        //i is the index for the arrayToBeSpliced
+//        for (int i = startingIndex; i < endingIndex; i++) {
+//            //copy the old value to the new array
+//            newArray[newArrayIndex] = arrayToBeSpliced[i];
+//            newArrayIndex++;
+//        }
+//        return newArray;
+//    }
 
     }
 
@@ -32,13 +50,28 @@ public class StringArrayUtils {
      */
     public static String[] getEndingArray(String[] arrayToBeSpliced, int startingIndex) {
 
-        String[] subArray = new String[arrayToBeSpliced.length-startingIndex]; // {null,null,...,null}
-
-        //if(arrayToBeSpliced.length >= startingIndex) {
-            List<String> subList = Arrays.asList(arrayToBeSpliced).subList(startingIndex, arrayToBeSpliced.length);
-
-            return subList.toArray(subArray);
-//        }
-//        return {};
+        return Arrays.copyOfRange(arrayToBeSpliced, startingIndex, arrayToBeSpliced.length);//Short solution
     }
+//if (startingIndex < 0) {
+//        throw new IndexOutOfBoundsException();
+//    }
+//
+//        if (startingIndex >= arrayToBeSpliced.length) {
+//        throw new IllegalArgumentException();
+//    }
+//
+//    int newLength = arrayToBeSpliced.length - startingIndex;
+//    String[] newArray = new String[newLength];
+//
+//    int newArrayIndex = 0;
+//
+//        for (int i = startingIndex; i < arrayToBeSpliced.length; i++) {
+//        //copy the old value to the new array
+//        newArray[newArrayIndex] = arrayToBeSpliced[i];
+//        newArrayIndex++;
+//    }
+//        return newArray;
+//
+//}
+
 }

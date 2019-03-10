@@ -3,6 +3,10 @@ package rocks.zipcode.assessment2.generics;
 
 import rocks.zipcode.assessment2.generics.ageable.Ageable;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 /**
  * Shelter is a generic class that holds Objects that extends `Ageable`.
  * For example, if a Person and a Dog extends Ageable, then I can declare the following:
@@ -10,10 +14,12 @@ import rocks.zipcode.assessment2.generics.ageable.Ageable;
  * Shelter<Person> farmHouse = new Shelter<Person>();
  * Shelter<Dog> dogHouse = new Shelter<Dog>();
  */
-public class Shelter<_> {
-    Shelter<Ageable> shelterHouse = new Shelter<Ageable>();
+public class Shelter<T>extends Ageable implements Iterable {
+    //Shelter<Ageable> shelterHouse = new Shelter<Ageable>();
+
+    List<Object> list;
     public Shelter() {
-        throw new NullPointerException();
+        list =new ArrayList<>();
     }
 
     /**
@@ -21,30 +27,37 @@ public class Shelter<_> {
      */
     public int size() {
 
-        return -1;
+        return list.size();
     }
 
     public void add(Object object) {
 
-        shelterHouse.add(object);
+        list.add(object);
 
         }
 
     public Boolean contains(Object object) {
 
-        return (Boolean)object;
+        return list.contains(object);
     }
 
     public void remove(Object object) {
+        list.remove(object);
     }
 
     public Object get(Integer index) {
 
-        return index;
+        return list.get(index);
     }
 
     public Integer getIndexOf(Object ageable) {
 
-        return 0;
+        return list.indexOf(ageable);
+    }
+
+    @Override
+    public Iterator iterator() {
+
+        return null;
     }
 }

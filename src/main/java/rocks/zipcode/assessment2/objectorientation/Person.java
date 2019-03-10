@@ -1,29 +1,28 @@
 package rocks.zipcode.assessment2.objectorientation;
 
+import java.util.Objects;
+
 /**
  * @author leon on 28/11/2018.
  * @ATTENTION_TO_STUDENTS - Ensure that you have completed the `Address` class before attempting this class
  */
-public class Person extends Address {
-    Long id;
-    String name;
-    Address address;
+public class Person  {
+    private Long id = Long.MIN_VALUE;
+    private String name="";
+    private  Address address= new Address();
     /**
      * @param id - id of person
      * @param name - name of person
      * @param address - address of person
      */
-    Address instAddress= new Address();
     public Person(Long id, String name, Address address) {
         this.id =id;
         this.name=name;
-        //super.address=super.getAddressLine1();
+        this.address =address;
     }
 
     public Person() {
-        this.id =Long.MIN_VALUE;
-        this.name="";
-       // this.address=super.getAddressLine1();
+
     }
 
     public Long getId() {
@@ -50,11 +49,29 @@ public class Person extends Address {
     }
 
     public void setAddress(Address address) {
-       this.instAddress.getAddressLine1();
+       this.address =address;
     }
 
     @Override
-    public boolean equals(Object o) {
-        return (Boolean)null;
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address=" + address +
+                '}';
     }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(id, person.id) &&
+                Objects.equals(name, person.name) &&
+                Objects.equals(address, person.address);
+    }
+
+
+
 }
